@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanPeminjamanHarian" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ff882709-373f-442f-b0b8-fdd3ccb3c1d4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="no" class="java.lang.String"/>
+	<field name="peminjam" class="java.lang.String"/>
+	<field name="judul" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="50" y="22" width="467" height="46" uuid="8dd47bd5-5482-49c8-8049-84e0feaea3bd"/>
+				<textElement>
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[LAPORAN PEMINJAMAN HARIAN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="8" width="100" height="20" uuid="556777ca-ce7a-4936-ba29-8c6dac119e49"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="389" y="8" width="60" height="20" uuid="7181a0a1-fd5d-48cb-9024-3023ee104923"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Halaman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="50" height="20" uuid="d3a80c31-d7cc-4440-a495-623d84639c35"/>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<textField evaluationTime="Report" pattern="dd MMMMM yyyy">
+				<reportElement x="50" y="0" width="100" height="20" uuid="5b2c23da-a6fd-4090-b490-51801b2e7968"/>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="37" y="0" width="193" height="20" uuid="0ffb6571-68ea-4b86-bf50-28acd4100b2c"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Peminjam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="0" width="325" height="20" uuid="d89604c9-5c9b-4fad-a048-09b4537cecee"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Judul Buku]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="37" height="20" uuid="983c1e21-c62b-4014-a00e-418b0a19aaac"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="37" y="0" width="182" height="20" uuid="da39c2c2-9a77-4363-902a-f26fedaa562b"/>
+				<textFieldExpression><![CDATA[$F{peminjam}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="0" width="325" height="20" uuid="bd9fa2a0-9d0d-4360-90b3-0629c3a0c9d5"/>
+				<textFieldExpression><![CDATA[$F{judul}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="27" height="20" uuid="c4ed5c06-6a22-4178-8899-a00b5a304919"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
